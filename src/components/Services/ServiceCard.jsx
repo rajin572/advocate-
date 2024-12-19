@@ -12,7 +12,7 @@ export function ServiceCard({ service }) {
     <CardContainer className="inter-var place-self-start">
       <CardBody
         className=" relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]   
-      !w-full lg:h-[750px] xl:h-[690px] rounded-xl p-8 border  "
+      !w-full lg:h-[750px] xl:h-[690px] rounded-xl p-5 lg:p-10 border  "
       >
         <CardItem
           translateZ="30"
