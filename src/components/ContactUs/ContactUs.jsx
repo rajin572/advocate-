@@ -11,16 +11,41 @@ import { motion, useInView } from "framer-motion";
 import { FiPhoneCall } from "react-icons/fi";
 import { TfiEmail } from "react-icons/tfi";
 import AnimatedUnderline from "../ui/AnimatedUnderline";
+import { toast } from "sonner";
+import { contactUs } from "@/app/actions/ContactUs";
 
 const ContactUs = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
+  const [form] = Form.useForm();
   const TextArea = Input.TextArea;
   const iframeSrc =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51568.197885735746!2d-115.20764229540139!3d36.11755643298104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c4383428d4eb%3A0x43e2195d0c26834c!2sLas%20Vegas%20Strip%2C%20NV%2C%20USA!5e0!3m2!1sen!2sbd!4v1733224046577!5m2!1sen!2sbd";
 
-  const onFinish = (values) => {
-    console.log("Connect With MVR Data:", values);
+  const onFinish = async (values) => {
+    const toastId = toast.loading("Message Sending...");
+
+    try {
+      const data = await contactUs({ ...values });
+      if (data.success) {
+        toast.success("Message Send Successfully", {
+          id: toastId,
+          duration: 2000,
+        });
+        form.resetFields(); // Reset the form fields after successful submission
+      } else {
+        toast.error(data.error, {
+          id: toastId,
+          duration: 2000,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong", {
+        id: toastId,
+        duration: 2000,
+      });
+    }
   };
   return (
     <motion.div ref={ref} className="py-20 overflow-hidden">
@@ -56,7 +81,7 @@ const ContactUs = () => {
               <div className="flex items-center gap-3">
                 <TfiEmail className="text-secondary-color text-lg  sm:text-xl lg:text-3xl" />
                 <p className="text-base-color sm:text-lg lg:text-xl">
-                  clients@clinivea.com
+                  clients@advocate.com
                 </p>
               </div>
             </div>
@@ -67,14 +92,19 @@ const ContactUs = () => {
             transition={{ duration: 1 }}
             className=""
           >
-            <Form layout="vertical" className="" onFinish={onFinish}>
+            <Form
+              form={form}
+              layout="vertical"
+              className=""
+              onFinish={onFinish}
+            >
               {/* Full Name Input */}
               <div>
                 <Typography.Title level={5} style={{ color: "#222222" }}>
                   Full Name
                 </Typography.Title>
                 <Form.Item
-                  name="fullName"
+                  name="name"
                   className="text-base-color"
                   rules={[
                     {
@@ -110,23 +140,23 @@ const ContactUs = () => {
                   />
                 </Form.Item>
               </div>
-              {/* phone Input */}
+              {/* subject Input */}
               <div>
                 <Typography.Title level={5} style={{ color: "#222222" }}>
-                  Phone Number
+                  Subject
                 </Typography.Title>
                 <Form.Item
-                  name="phoneNumber"
+                  name="subject"
                   className="text-base-color"
                   rules={[
                     {
                       required: true,
-                      message: "Phone Number is Required",
+                      message: "Subject is Required",
                     },
                   ]}
                 >
                   <Input
-                    placeholder="Enter your Phone Number"
+                    placeholder="Enter your Subject"
                     className="py-2 px-3 text-lg bg-[#F7F8F8] border-2 border-[#E6E7E6] text-base-color "
                   />
                 </Form.Item>

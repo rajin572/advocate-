@@ -6,6 +6,7 @@ import Link from "next/link";
 import Container from "../ui/Container";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="pt-16 pb-5 bg-highlight-color">
       <Container>
@@ -113,7 +114,7 @@ export default function Footer() {
                 Email us
               </p>
               <p className=" text-xl mb-2 text-base-color">
-                clients@clinivea.com
+                clients@advocate.com
               </p>
             </div>
           </div>
@@ -121,7 +122,11 @@ export default function Footer() {
         <div className="">
           <div className="border-t border-[#222222] mt-10"></div>
           <div className="flex flex-col lg:flex-row justify-between lg:items-center mt-10 gap-10 lg:gap-0 mb-10">
-            <div></div>
+            <div>
+              <p className="text-center text-base-color/50 text-lg ">
+                &copy; {currentYear} Advocate. All Rights Reserved.
+              </p>
+            </div>
             <div className="flex flex-col lg:flex-row justify-between gap-5 text-xl">
               <Link href="/about-us">
                 <p className="text-base-color/60">About Us</p>

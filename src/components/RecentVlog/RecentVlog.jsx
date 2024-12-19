@@ -16,45 +16,7 @@ import BlogCard from "../ui/Blog/BlogCard";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import AnimatedUnderline from "../ui/AnimatedUnderline";
-
-const blogData = [
-  {
-    image: AllBlogs.blog1,
-    date: "June 23; 2024",
-    title:
-      "Clinivea’s MVR helped Sarah find the right oncologist, coordinated her appointments, and explained every step of her treatment plan. ",
-  },
-  {
-    image: AllBlogs.blog2,
-    date: "June 23; 2024",
-    title:
-      "Clinivea’s MVR helped Sarah find the right oncologist, coordinated her appointments, and explained every step of her treatment plan. ",
-  },
-  {
-    image: AllBlogs.blog1,
-    date: "June 23; 2024",
-    title:
-      "Clinivea’s MVR helped Sarah find the right oncologist, coordinated her appointments, and explained every step of her treatment plan. ",
-  },
-  {
-    image: AllBlogs.blog2,
-    date: "June 23; 2024",
-    title:
-      "Clinivea’s MVR helped Sarah find the right oncologist, coordinated her appointments, and explained every step of her treatment plan. ",
-  },
-  {
-    image: AllBlogs.blog1,
-    date: "June 23; 2024",
-    title:
-      "Clinivea’s MVR helped Sarah find the right oncologist, coordinated her appointments, and explained every step of her treatment plan. ",
-  },
-  {
-    image: AllBlogs.blog2,
-    date: "June 23; 2024",
-    title:
-      "Clinivea’s MVR helped Sarah find the right oncologist, coordinated her appointments, and explained every step of her treatment plan. ",
-  },
-];
+import { BlogData } from "../../../public/data/BlogData";
 
 const RecentVlog = () => {
   const ref = useRef(null);
@@ -100,7 +62,7 @@ const RecentVlog = () => {
               modules={[Navigation]}
               className="mySwiper  py-20  px-2"
             >
-              {blogData.map((item, i) => (
+              {BlogData.map((item, i) => (
                 <SwiperSlide key={i}>
                   <BlogCard item={item} />
                 </SwiperSlide>

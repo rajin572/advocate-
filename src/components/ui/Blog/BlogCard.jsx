@@ -20,17 +20,18 @@ const BlogCard = ({ item }) => {
         width={0}
         height={0}
         sizes="100vw"
-        className="w-full  rounded-lg"
+        className="w-full max-h-[350px] rounded-lg object-cover"
       />
+      <Link href={`/blogs/${item?.id}`}>
+        <div className="flex items-center text-base-color font-semibold text-xl mb-3 mt-6">
+          {/* <GoClock className="mr-2 text-secondary-color size-5" /> */}
+          <span>{item?.title}</span>
+        </div>
+      </Link>
 
-      <div className="flex items-center text-base-color text-sm mb-3 mt-6">
-        <GoClock className="mr-2 text-secondary-color size-5" />
-        <span>{item.date}</span>
-      </div>
-
-      <p className="text-base-color text-xl mb-4">
-        {item.title}
-        <Link href="/blogs/64854564231231">
+      <p className="text-base-color text-base mb-4">
+        {item?.description.slice(0, 150)}{" "}
+        <Link href={`/blogs/${item?.id}`}>
           <span className="text-secondary-color font-semibold hover:underline">
             Read More...
           </span>

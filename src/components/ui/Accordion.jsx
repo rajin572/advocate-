@@ -36,14 +36,16 @@ const Accordion = ({ title, content, className }) => {
         className="flex justify-between items-center p-4 cursor-pointer  duration-500"
         onClick={toggleAccordion}
       >
-        <h3 className="text-base-color text-xl font-semibold">{title}</h3>
+        <h3 className="text-base-color text-base md:text-lg lg:text-xl  font-semibold">
+          {title}
+        </h3>
         {isOpen ? (
           <div>
-            <HiMinus className="text-2xl duration-500" />
+            <HiMinus className="text-base md:text-lg lg:text-2xl duration-500" />
           </div>
         ) : (
           <div>
-            <GoPlus className="text-2xl duration-500" />
+            <GoPlus className="text-base md:text-lg lg:text-2xl duration-500" />
           </div>
         )}
       </div>
@@ -55,7 +57,7 @@ const Accordion = ({ title, content, className }) => {
           transition: "height 0.5s ease", // Smooth transition effect for height
         }}
       >
-        <div className="p-4 bg-[#D3EBE7] text-base-color duration-500 text-lg rounded-bl rounded-br">
+        <div className="p-4 bg-[#D3EBE7] text-base-color duration-500 text-sm md:text-base lg:text-lg rounded-bl rounded-br">
           {content}
         </div>
       </div>

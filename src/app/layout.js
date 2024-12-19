@@ -12,59 +12,53 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-// const skia = localFont({
-//   src: "./font/Skia.ttf",
-//   variable: "--skia",
-// });
-
 export const metadata = {
   title: "Advocate",
   template: "%s - Advocate",
-  description: "",
-  keywords: [],
-  //* openGraph: {
-  //*   title: "Advocate",
-  //*   description: "",
-  //*   images: [
-  //*     {
-  // *      url: "./opengraph-image.png",
-  // *      width: 1920,
-  //*       height: 1080,
-  //*     },
-  //*   ],
-  //*   url: "", //* https://photooprps.com/
-  //*   type: "website",
-  //*   siteName: "Advocate",
-  //* },
+  description: "Compassionate Care, Right Where You Feel Most Comfortable",
+  keywords: ["Advocate", "Compassionate care", "Home care", "Domiciliary care"],
+  openGraph: {
+    title: "Advocate",
+    description: "Compassionate Care, Right Where You Feel Most Comfortable",
+    images: [
+      {
+        url: "./opengraph-image.png",
+        width: 1920,
+        height: 1080,
+      },
+    ],
+    url: "https://home-care-website.vercel.app/",
+    type: "website",
+    siteName: "Advocate",
+  },
 
-  //   index: true,
-  //   follow: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: true,
-  //     "max-video-preview": -1,
-  //     "max-image-preview": "large",
-  //     "max-snippet": -1,
-  //   },
-  // },
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+  },
 
-  //* twitter: {
-  //*   card: "summary_large_image",
-  //*   title: "Advocate",
-  // *  description: "",
-  // *  images: ["./opengraph-image.png"],
-  //*   creator: "@advocate",
-  //* },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advocate",
+    description: "Compassionate Care, Right Where You Feel Most Comfortable",
+    images: ["./opengraph-image.png"],
+    creator: "@advocate",
+  },
 
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   "max-video-preview": -1,
-  //   "max-image-preview": "large",
-  //   "max-snippet": -1,
-  // },
+  robots: {
+    index: true,
+    follow: true,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+  },
 
-  //* metadataBase: new URL("https://photooprps.com/"),
+  metadataBase: new URL("https://home-care-website.vercel.app/"),
 };
 
 // ${skia.variable}
@@ -88,7 +82,7 @@ export default function RootLayout({ children }) {
           zIndex={1600}
           showAtBottom={false}
         />
-        <Toaster />
+        <Toaster position="top-center" richColors />
         <AntdRegistry>
           <ConfigProvider theme={mainTheme}>{children}</ConfigProvider>
         </AntdRegistry>

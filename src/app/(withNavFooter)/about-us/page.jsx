@@ -1,17 +1,19 @@
 import AboutUsBanner from "@/components/AbouUs/AboutUsBanner";
-import OurApproach from "@/components/AbouUs/OurApproach";
-import OurValues from "@/components/AbouUs/OurValues";
+
 import ContactUs from "@/components/ContactUs/ContactUs";
-import Container from "@/components/ui/Container";
-import { Divider } from "antd";
+
+import WhyUs from "@/components/WhyUs/WhyUs";
+
 import React from "react";
 
+export const metadata = {
+  title: "About Advocate",
+};
 const page = () => {
   return (
     <div className="min-h-screen mb-10 md:mb-16">
       <AboutUsBanner />
-      <OurApproach />
-      <OurValues />
+      <WhyUs />
 
       <ContactUs />
     </div>

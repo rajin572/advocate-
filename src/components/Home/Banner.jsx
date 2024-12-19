@@ -50,7 +50,7 @@ export default function Banner() {
       transition={{ duration: 1.5, delay: 0.1 }}
       className="relative bg-[#F3F3F3] w-full h-[90vh] overflow-hidden flex flex-col items-center"
     >
-      <Swiper
+      {/* <Swiper
         spaceBetween={0}
         draggable={false}
         effect={"fade"}
@@ -91,8 +91,8 @@ export default function Banner() {
           />
           <div className="absolute inset-0 bg-black opacity-70"></div>
         </SwiperSlide>
-      </Swiper>
-      <div className="absolute w-full h-[90vh] z-10 text-base-color text-center flex justify-center items-center">
+      </Swiper> */}
+      <div className="absolute w-full h-[90vh] z-10 bg-highlight-color text-base-color text-center flex justify-center items-center">
         <Container>
           {/* <div className="w-fit ml-[20%] hidden lg:block">
             <motion.svg
@@ -129,25 +129,14 @@ export default function Banner() {
               />
             </motion.svg>
           </div> */}
-          <div className="grid grid-cols-1  lg:items-start justify-items-center w-full">
+          <div className="grid grid-cols-2  lg:items-start justify-items-center w-full">
             <div>
-              <motion.div
-                // initial={{ opacity: 0, y: -200 }}
-                // animate={{ opacity: 1, y: 0 }}
-                // transition={{
-                //   type: "spring",
-                //   bounce: 0.4,
-
-                //   duration: 1,
-                //   delay: 0.3,
-                // }}
-                className="text-center"
-              >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl leading-10	 text-primary-color  font-semibold mb-10 font-skia ">
-                  <Revel className="mx-auto py-1" delay={0}>
+              <motion.div className="text-start">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl leading-10	text-secondary-color font-semibold mb-10 font-skia ">
+                  <Revel className="py-1" delay={0}>
                     <p>Compassionate Care,</p>
                   </Revel>
-                  <Revel className="mx-auto py-2" delay={0.1}>
+                  <Revel className=" py-2" delay={0.1}>
                     <p className="sm:mt-1 lg:mt-2">
                       {" "}
                       Right Where You Feel Most Comfortable
@@ -158,8 +147,8 @@ export default function Banner() {
                 {/* <h3 className="text-xl lg:text-2xl xl:text-4xl  font-semibold mb-6 flex items-center flex-wrap justify-center lg:justify-start">
                 Easy way to navigate your healthcare
               </h3> */}
-                <Revel className="mx-auto" delay={0.2}>
-                  <p className=" sm:text-lg lg:text-xl text-highlight-color w-full sm:w-[90%] lg:w-[80%] font-medium xl:w-[80%] mx-auto">
+                <Revel className="" delay={0.2}>
+                  <p className=" sm:text-lg lg:text-xl  w-full sm:w-[90%] lg:w-[80%] font-medium xl:w-[80%]">
                     Providing compassionate and professional carers to ensure
                     your loved ones receive the best care in the comfort of
                     their own home.
@@ -188,7 +177,7 @@ export default function Banner() {
                     damping: 7,
                   }}
                   type="primary"
-                  className="isolate  w-full sm:w-fit mx-auto flex justify-center items-center border border-highlight-color bg-highlight-color/20 backdrop-filter  backdrop-blur-3xl shadow-lg ring-1 ring-primary-color/5 text-primary-color mt-10 font-medium sm:px-5 py-2 text-sm lg:text-lg rounded-lg"
+                  className="isolate  w-full sm:w-fit  flex justify-center items-center border border-secondary-color bg-secondary-color/0 backdrop-filter  backdrop-blur-3xl shadow-lg ring-1 ring-primary-color/5 text-secondary-color mt-10 font-medium sm:px-5 py-2 text-sm lg:text-lg rounded-lg"
                 >
                   Request Care Needs Assessment
                   <FaArrowRight className="sm:text-lg lg:text-lg xl:text-xl ml-3 mt-1" />
@@ -196,7 +185,7 @@ export default function Banner() {
               </motion.div>
             </div>
 
-            {/* <motion.div
+            <motion.div
               className="mt-10 lg:mt-0  order-last"
               initial={{ opacity: 0, x: 200 }}
               animate={{ opacity: 1, x: 0 }}
@@ -213,11 +202,11 @@ export default function Banner() {
                   controlsList="nodownload"
                   className=" w-full h-full rounded-lg "
                 >
-                  <source src="/video/banner.mp4" type="video/mp4" />
+                  <source src="/video/overview.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </Suspense>
-            </motion.div> */}
+            </motion.div>
           </div>
         </Container>
       </div>

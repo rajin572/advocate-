@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import Container from "../ui/Container";
 import { AllImages } from "../../../public/assets/AllImages";
 import { FaStar } from "react-icons/fa6";
@@ -16,6 +16,7 @@ import "swiper/css/effect-fade";
 import TestimonialCard from "../ui/Testimonial/TestimonialCard";
 import { motion, useInView } from "framer-motion";
 import AnimatedUnderline from "../ui/AnimatedUnderline";
+import Revel from "../ui/Animation/Revel";
 
 const testimonials = [
   {
@@ -55,8 +56,56 @@ const testimonials = [
 const Testimonial = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
+  const videoRefs = useRef([]);
+
+  const handlePlay = (index) => {
+    // Pause all other videos
+    videoRefs.current.forEach((video, i) => {
+      if (i !== index && video) {
+        video.pause();
+      }
+    });
+  };
   return (
     <motion.div ref={ref} className="py-16 select-none overflow-hidden">
+      <div className="mb-20">
+        <Container>
+          <div>
+            <Revel delay={0}>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-bold text-secondary-color text-start">
+                Testimonials or Reviews
+              </h1>
+            </Revel>
+            <Revel delay={0.1}>
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-base-color w-full sm:w-[90%] lg:w-[80%]  xl:w-[80%] mt-7 text-start">
+                At Advocate, we take pride in providing compassionate care that
+                empowers individuals to live with dignity and independence. Your
+                health, comfort, and happiness are at the heart of everything we
+                do.
+              </p>
+            </Revel>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+            {[
+              "/video/wayneTestimonial.mp4",
+              "/video/andrewTestimonial.mp4",
+            ].map((src, index) => (
+              <Revel key={index} delay={0.1}>
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  controls
+                  controlsList="nodownload"
+                  className="w-full h-full rounded-lg"
+                  onPlay={() => handlePlay(index)}
+                >
+                  <source src={src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </Revel>
+            ))}
+          </div>
+        </Container>
+      </div>
       <div>
         <div className="mb-14 sm:mb-16 lg:mb-20">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[45px] font-semibold text-secondary-color mb-2 text-center">

@@ -105,10 +105,7 @@ const Navbar = () => {
       name: "Home",
       link: "/",
     },
-    {
-      name: "Why us",
-      link: "/why-us",
-    },
+
     {
       name: "About us",
       link: "/about-us",
